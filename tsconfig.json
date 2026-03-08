@@ -11,7 +11,7 @@
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "isolatedModules": true,
-    "types": ["chrome"]
+    "types": ["chrome", "react", "react-dom"]
   },
   "include": ["src", "manifest.json", "vite.config.ts"]
 }

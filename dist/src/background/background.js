@@ -1,0 +1,1 @@
+(function(){"use strict";let r=null;chrome.runtime.onMessage.addListener((t,n,i)=>(t==null?void 0:t.type)==="PANTRY_MATCH_RECIPE"?(r=t.payload,i({status:"ok"}),!0):(t==null?void 0:t.type)==="PANTRY_MATCH_GET_RECIPE"?(i({recipe:r}),!0):!1),chrome.action.onClicked.addListener(async t=>{t.id&&await chrome.sidePanel.open({tabId:t.id})})})();

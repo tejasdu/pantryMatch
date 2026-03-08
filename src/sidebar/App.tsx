@@ -13,12 +13,16 @@ const App: React.FC = () => {
 
   useEffect(() => {
     const init = async () => {
-      await ensurePantryInitialized();
-      const items = await getPantry();
-      setPantry(items);
-      const response = await chrome.runtime.sendMessage({ type: "PANTRY_MATCH_GET_RECIPE" });
-      if (response?.recipe) {
-        setRecipe(response.recipe as Recipe);
+      try {
+        await ensurePantryInitialized();
+        const items = await getPantry();
+        setPantry(items);
+        const response = await chrome.runtime.sendMessage({ type: "PANTRY_MATCH_GET_RECIPE" });
+        if (response?.recipe) {
+          setRecipe(response.recipe as Recipe);
+        }
+      } catch (err) {
+        console.warn("PantryMatch: could not load recipe from tab", err);
       }
     };
 

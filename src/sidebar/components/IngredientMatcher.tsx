@@ -19,8 +19,8 @@ const IngredientMatcher: React.FC<IngredientMatcherProps> = ({ matches }) => {
     <section>
       <h2 style={{ fontSize: 16, marginBottom: 8 }}>Ingredients</h2>
       <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-        {matches.map((match) => (
-          <li key={match.ingredient} style={{ display: "flex", gap: 8, marginBottom: 4 }}>
+        {matches.map((match, index) => (
+          <li key={`${index}-${match.normalized}`} style={{ display: "flex", gap: 8, marginBottom: 4 }}>
             <span>{match.matched ? "✅" : "❌"}</span>
             <span>{match.ingredient}</span>
           </li>

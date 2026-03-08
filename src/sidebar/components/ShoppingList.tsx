@@ -16,8 +16,8 @@ const ShoppingList: React.FC<ShoppingListProps> = ({ matches }) => {
     <section style={{ marginTop: 16 }}>
       <h2 style={{ fontSize: 16, marginBottom: 8 }}>Shopping List</h2>
       <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-        {missing.map((match) => (
-          <li key={match.ingredient}>{match.ingredient}</li>
+        {missing.map((match, index) => (
+          <li key={`${index}-${match.normalized}`}>{match.ingredient}</li>
         ))}
       </ul>
     </section>
